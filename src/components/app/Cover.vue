@@ -2,10 +2,10 @@
   <v-hover v-slot="{ hover }">
     <v-card
       class="cover-container"
-      :class="noInfo ? '' : ' pa-2'"
       flat
       rounded="xl"
       :color="coverColor(hover)"
+      :elevation="hover ? 1 : 0"
     >
       <v-card
         flat
@@ -49,7 +49,8 @@
       >
         <router-link :to="to" class="title">
           <span
-            class="h-2x mt-2 font-weight-bold text-subtitle-2 onSurfaceVariant--text"
+            :class="`h-${titleLine}x`"
+            class="h-1x mt-2 font-weight-bold text-subtitle-2 onSurfaceVariant--text"
             >{{ data.name }}</span
           >
         </router-link>
@@ -102,6 +103,10 @@ export default {
     extra: {
       type: String,
       default: null,
+    },
+    titleLine: {
+      type: Number,
+      default: 1,
     },
   },
   data() {
@@ -192,9 +197,9 @@ export default {
       } else if (hover && !dark) {
         return this.lightColor;
       } else if (!hover && dark) {
-        return 'background';
+        return 'surfaceVariant';
       } else if (!hover && !dark) {
-        return 'background';
+        return 'surfaceVariant';
       }
     },
     async play() {

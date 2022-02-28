@@ -22,6 +22,7 @@
             :key="list.id"
             :data="list"
             type="playlist"
+            :title-line="2"
           />
         </carousel>
       </custom-col>

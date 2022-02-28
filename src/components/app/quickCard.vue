@@ -7,6 +7,7 @@
       flat
       :height="height"
       :to="to"
+      :elevation="hover ? 1 : 0"
     >
       <v-img
         :max-height="height"
