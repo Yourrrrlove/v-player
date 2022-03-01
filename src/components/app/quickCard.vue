@@ -111,11 +111,6 @@ export default {
       this.loading = false;
     },
   },
-  watch: {
-    '$vuetify.breakpoint.name'(val) {
-      console.log(val);
-    },
-  },
 };
 </script>
 

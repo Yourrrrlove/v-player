@@ -43,22 +43,21 @@
           </v-overlay>
         </v-slide-y-reverse-transition>
       </v-card>
-      <v-card-actions
-        class="d-flex flex-column align-start pa-2"
-        v-if="!noInfo"
-      >
+      <v-card-title class="px-3">
         <router-link :to="to" class="title">
           <span
             :class="`h-${titleLine}x`"
-            class="h-1x mt-2 font-weight-bold text-subtitle-2 onSurfaceVariant--text"
+            class="text-subtitle-1 font-weight-bold onSurfaceVariant--text"
             >{{ data.name }}</span
           >
         </router-link>
-        <span class="h-1x text-caption grey--text" v-if="subTitle">
+      </v-card-title>
+      <v-card-subtitle class="px-3">
+        <span class="h-1x text-subtitle-2" v-if="subTitle">
           {{ subTitle }}
         </span>
-        <slot />
-      </v-card-actions>
+      </v-card-subtitle>
+      <slot />
     </v-card>
   </v-hover>
 </template>
@@ -75,7 +74,7 @@ export default {
   name: 'Cover',
   props: {
     rounded: {
-      type: String,
+      type: [String, Boolean],
       default: 'xl',
     },
     data: {
