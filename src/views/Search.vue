@@ -23,7 +23,7 @@
         </default-input>
       </div>
       <v-divider />
-      <v-chip-group v-model="filter" class="d-flex px-4 py-2">
+      <v-chip-group v-model="filter" class="d-flex px-4">
         <v-chip
           v-for="chip in filterChips"
           :key="chip.value"
@@ -297,8 +297,9 @@ export default {
 .v-dialog__content {
   margin-top: 10vh;
   align-items: start;
-  .search-container {
+  ::v-deep .search-container {
     border-radius: 0.5rem;
+    border: 1px solid var(--v-surfaceVariant-base);
     .content {
       min-height: 200px;
       max-height: 60vh;
